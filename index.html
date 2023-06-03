@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>PWA Starter</title>
+  <meta name="description" content="This is a mental health journaling app" />
+  <title>Respose</title>
 
   <base href="/" />
 
@@ -19,7 +19,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="PWA Starter" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
+
   <!-- This tag is used by the PWA Starter CLI to identify template projects. Don't remove if you are using the CLI. -->
   <meta name="pwa-starter-template-identity" content="pwa-starter"/>
 
@@ -41,7 +41,7 @@
 
 <body>
   <!-- Our app-index web component. This component is defined in src/pages/app-index.ts-->
-  <app-index></app-index>
+  <app-index>enable="${true}"</app-index>
 
   <script>
     if ('serviceWorker' in navigator) {

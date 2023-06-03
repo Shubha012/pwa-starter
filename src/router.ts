@@ -27,7 +27,7 @@ export const router = new Router({
         path: `${baseURL}about`,
         title: 'About',
         plugins: [
-          lazy(() => import('./pages/app-about/app-about.js')),
+          lazy(() => import('./pages/app-about/app-journal.js')),
         ],
         render: () => html`<app-about></app-about>`
       }

@@ -5,6 +5,7 @@ import '@shoelace-style/shoelace/dist/components/card/card.js';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 
 import { styles } from '../styles/shared-styles';
+import '../components/hero-decor';
 
 @customElement('app-home')
 export class AppHome extends LitElement {
@@ -17,42 +18,100 @@ export class AppHome extends LitElement {
     return [
       styles,
       css`
-      #welcomeBar {
+      .hero {
+        height: 90vh;
+        min-height: 600px;
+        max-height: 900px;
+        max-width: 100%;
+        max-width: 100vw;
+        padding: 0 48px;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      .hero__inner {
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
+        position: relative;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      #welcomeCard,
-      #infoCard {
-        padding: 18px;
-        padding-top: 0px;
+      .hero__top-content {
+        flex: 1 1 0px;
+        color: white;
+        margin: 4rem 5rem 0;
+        text-align: center;
+        max-height: 25vh;
       }
 
-      sl-card::part(footer) {
-        display: flex;
-        justify-content: flex-end;
+      .hero__top-content h1 {
+        font-weight: normal;
+        font-size: 48px;
       }
 
-      @media(min-width: 750px) {
-        sl-card {
-          width: 70vw;
+      .hero__top-content fluent-anchor {
+        margin-top: 1rem;
+      }
+
+      .hero__top-content fluent-anchor::part(control) {
+        border-radius: 15px;
+        color: #107652;
+      }
+
+      .hero__top-content fluent-anchor::part(control):hover {
+        color: #2E765E;
+      }
+
+      .hero__bottom-content {
+        flex: 1 1 0px;
+        height: 50vh;
+      }
+
+      .hero__bottom-content img {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media screen and (max-width: 840px) and (min-width: 625px) {
+        .hero__top-content {
+          margin: 4rem 2rem 0px;
         }
       }
 
-
-      @media (horizontal-viewport-segments: 2) {
-        #welcomeBar {
-          flex-direction: row;
-          align-items: flex-start;
-          justify-content: space-between;
+      @media screen and (max-width: 625px) and (min-width: 480px) {
+        .hero__top-content {
+          margin: 2rem 2rem 0px;
         }
 
-        #welcomeCard {
-          margin-right: 64px;
+        .hero__bottom-content {
+          margin-top: 7rem;
         }
       }
+
+      @media screen and (max-width: 480px) {
+        header {
+          margin: 0 2rem;
+        }
+
+        .hero {
+          padding: 0 1rem;
+        }
+
+        .hero__top-content {
+          margin: 1rem 0;
+        }
+
+        .hero__top-content h1 {
+          font-size: 36px;
+        }
+
+        .hero__bottom-content {
+          margin-top: 7rem;
+        }
+      }
+
     `];
   }
 
@@ -79,7 +138,19 @@ export class AppHome extends LitElement {
   render() {
     return html`
       <app-header></app-header>
-
+      <div class="hero">
+      <hero-decor></hero-decor>
+      <div class="hero__inner">
+        <div class="hero__top-content">
+          <h1>Intelligent Daily Mood Journal</h1>
+          <p>Repose is your personal mood tracking companion that helps you organize and reflect upon your daily thoughts.</p>
+          <fluent-anchor href="/journal" appearance="lightweight">Mood check-in</fluent-anchor>
+        </div>
+        <div class="hero__bottom-content">
+        <img src="assets/media/humans.svg" alt="Humans">
+        </div>
+      </div>
+    </div>
       <main>
         <div id="welcomeBar">
           <sl-card id="welcomeCard">
